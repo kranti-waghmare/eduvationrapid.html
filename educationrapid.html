@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>education</title>
+
+
+  <style>
+    #main{
+      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20190221/ourmid/pngtree-green-education-blackboard-stereoscopic-image_20770.jpg'  );
+
+      background-repeat: no-repeat;
+
+      background-position: 100% 100%;
+      background-size: 100% 100%;
+
+
+    }
+  </style>
+
+
+
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+
+  
+
+
+</head>
+<body>
+
+  <!-- navbar start -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Education</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav><br>
+
+  <h1 style="color: crimson; text-align: center; font-weight: bolder;">The day History</h1>
+
+ <center>
+  <form id="main">
+
+    <input type="number" name="number" id="number" placeholder="enter month...">
+    <input type="number" name="number" id="number1" placeholder="enter date..."><br><br>
+
+    <input type="submit" class="btn btn-danger" value="click-here"><br><br>
+
+    <h3 style="color: white; font-weight: bolder; font-family: Verdana, Geneva, Tahoma, sans-serif;">the day special...<span id="heading"></span></h3>
+
+  </form>
+</center>
+
+
+<script>
+  var form =  document.getElementById('main');
+
+  form.addEventListener('submit',async(e)=>{
+
+    e.preventDefault();
+    document.getElementById('number').value;
+    document.getElementById('number1').value;
+    
+
+    const url = 'https://numbersapi.p.rapidapi.com/2/6/date?fragment=true&json=true';
+const options = {
+method: 'GET',
+headers: {
+    'X-RapidAPI-Key': 'bb5509b765msh1cb1ffcf2095f8bp116fa0jsn988ace031c8a',
+    'X-RapidAPI-Host': 'numbersapi.p.rapidapi.com'
+}
+};
+
+try {
+const response = await fetch(url, options);
+const result = await response.json();
+console.log(result.text);
+
+document.getElementById("heading").innerHTML = result.text
+} catch (error) {
+console.error(error);
+}
+    
+
+
+  })
+  
+  
+</script>
+
+
+   <!-- bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+</body>
+</html>
